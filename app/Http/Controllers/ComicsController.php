@@ -13,6 +13,7 @@ class ComicsController extends Controller
     public function index()
     {
         //
+        dd(Comics::all());
     }
 
     /**
@@ -37,6 +38,7 @@ class ComicsController extends Controller
     public function show(Comics $comics)
     {
         //
+        dd($comics);
     }
 
     /**

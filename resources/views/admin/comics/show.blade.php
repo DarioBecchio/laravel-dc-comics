@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Comics</title>
+        <title>Single comic</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -14,9 +14,11 @@
          
     </head>
     <body class="antialiased">
+        <div>
+            <h1>{{$comics->title}}</h1>
+            <img src="{{$comics->cover_image}}" alt="">
+        </div>
         
-        <h1>{{$comics->title}}</h1>
-        <img src="{{$comics->cover_image}}" alt="">
         
     </body>
 </html>

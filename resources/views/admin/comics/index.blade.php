@@ -15,9 +15,12 @@
     </head>
     <body class="antialiased">
         @foreach ($comics as $comic)
-        <h1>{{$comic->title}}</h1>
-        <a href="{{route('comics.show',$comic)}}">view comic</a>
-        <img src="{{$comic->cover_image}}" alt="">
+        <div>
+            <h1>{{$comic->title}}</h1>
+            <a href="{{route('comics.show' , $comic)}}">view comic</a>
+            <img src="{{$comic->cover_image}}" alt="">
+        </div>
+        
         @endforeach
     </body>
 </html>

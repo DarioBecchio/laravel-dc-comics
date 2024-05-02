@@ -13,7 +13,9 @@ class ComicsController extends Controller
     public function index()
     {
         //
-        dd(Comics::all());
+        //dd(Comics::all());
+        //prints all comics
+        return view('admin.comics.index', ['comics'=>Comics::all()]);
     }
 
     /**
@@ -38,7 +40,9 @@ class ComicsController extends Controller
     public function show(Comics $comics)
     {
         //
-        dd($comics);
+        //dd($comics);
+        //prints selected comics
+        return view('admin.comics.show' , compact('comics'));
     }
 
     /**

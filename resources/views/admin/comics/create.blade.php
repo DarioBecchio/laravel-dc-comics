@@ -1,17 +1,38 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('index.blade.php')
 
-        <title>Single comic</title>
+@section('pageTitle', 'Create a new comic')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
+@section ('content')
 
-        <!-- Styles -->
-         
-    </head>
-    
-</html>
+<div class="container">
+    <form action="" method="post">
+        @crsf
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+                type="text"
+                class="form-control"
+                name="title"
+                id="title"
+                aria-describedby="helpId"
+                placeholder="type a new Comic title here"
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <div class="mb-3">
+            <label for="cover_image" class="form-label">Image URL</label>
+            <input
+                type="cover_image"
+                class="form-control"
+                name="cover_image"
+                id="cover_image"
+                aria-describedby="helpId"
+                placeholder="type an image URL here"
+            />
+            <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+
+    </form>
+</div>
+
+@endsection

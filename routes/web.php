@@ -21,4 +21,3 @@ Route::get('/', function () {
 /*CRUD operations */
 
 Route::resource('comics' , ComicsController::class);
-

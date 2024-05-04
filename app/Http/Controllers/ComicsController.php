@@ -24,7 +24,8 @@ class ComicsController extends Controller
     public function create()
     {
         //
-        return view('admin.comics.create');
+        return view('create');
+         
 
     }
 
@@ -34,6 +35,8 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
+        //return view('admin.comics.show');
     }
 
     /**
@@ -61,7 +64,7 @@ class ComicsController extends Controller
     public function update(Request $request, Comics $comics)
     {
         //
-    }
+    } 
 
     /**
      * Remove the specified resource from storage.

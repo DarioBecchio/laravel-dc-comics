@@ -15,8 +15,8 @@
     </head>
     <body class="antialiased">
         <div>
-            <h1>{{$comics->title}}</h1>
-            <img src="{{$comics->cover_image}}" alt="">
+            <h1>{{$comic->title}}</h1>
+            <img src="{{$comic->cover_image}}" alt="">
         </div>
         
         

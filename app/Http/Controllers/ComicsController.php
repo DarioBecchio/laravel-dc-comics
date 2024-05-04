@@ -24,7 +24,7 @@ class ComicsController extends Controller
     public function create()
     {
         //
-        return view('create');
+        //return view('admin.comics.create');
          
 
     }
@@ -36,18 +36,18 @@ class ComicsController extends Controller
     {
         //
         dd($request);
-        //return view('admin.comics.show');
+    
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Comics $comics)
+    public function show(Comics $comic)
     {
         //
         //dd($comics);
         //prints selected comics
-        return view('admin.comics.show' , compact('comics'));
+        return view('admin.comics.show' , compact('comic'));
     }
 
     /**

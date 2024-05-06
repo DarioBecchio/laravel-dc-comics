@@ -16,6 +16,7 @@ class ComicsController extends Controller
         //dd(Comics::all());
         //prints all comics
         return view('admin.comics.index', ['comics'=>Comics::all()]);
+        return view('layouts.comics.welcome', ['comics'=>Comics::all()]);
 
         
     }
@@ -37,18 +38,20 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request->all());
+        dd($request->all());
 
         $data = $request->all();
 
         $newComic = new Comics();
-
+        /*
         $newComic->title = $data['title'];
 
         $newComic->cover_image = $data['cover_image'];
        
+        
+        */
+        $newComic->fill($data);
         $newComic->save();
-
         return to_route('admin.comics.index');
     }
 

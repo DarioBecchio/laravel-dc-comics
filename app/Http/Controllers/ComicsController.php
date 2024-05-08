@@ -71,10 +71,10 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comics $comics)
+    public function edit(Comics $comic)
     {
         //dd($comics);
-        return view('admin.comics.edit',compact('comics'));
+        return view('admin.comics.edit',compact('comic'));
     }
 
     /**
@@ -82,7 +82,10 @@ class ComicsController extends Controller
      */
     public function update(Request $request, Comics $comics)
     {
-        //
+        //dd($request->all(), $comics);
+        
+        $comics->update($request->all());
+        return to_route('admin.comics.index');
     } 
 
     /**

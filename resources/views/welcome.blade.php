@@ -6,7 +6,7 @@
        @forelse($comics as $comic) 
         <div class="col-4">
             <div class="card">
-                <img src="{{$comic->cover_image}}" alt="The comic" class="card-img-top">
+                <img width="500" src="{{$comic->cover_image}}" alt="The comic" class="card-img-top">
                 <div class="card-body">
                   <h1>{{$comic->title}}</h1>  
                 </div>

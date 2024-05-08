@@ -19,7 +19,16 @@ Route::get('/', function () {
     $comics = Comics::all();
     return view('welcome', compact('comics'));
     
-});
+})->name('home');
+
+Route::get('/ourcompany', function () {
+    return view('ourcompany');
+})->name('ourcompany');
+
+Route::get('/comics/{comic}', function ($title) {
+    $house = Comics::findOrFail($title);
+    return view('layouts.comic.show', compact('comic'));
+})->name('guests.houses.show');
 
 /*CRUD operations */
 

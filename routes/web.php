@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ComicsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Comics;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $comics = Comics::all();
+    return view('welcome', compact('comics'));
+    
 });
 
 /*CRUD operations */

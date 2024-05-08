@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comics;
 use Illuminate\Http\Request;
+use Termwind\Components\Dd;
 
 class ComicsController extends Controller
 {
@@ -15,8 +16,9 @@ class ComicsController extends Controller
         //
         //dd(Comics::all());
         //prints all comics
-        return view('admin.comics.index', ['comics'=>Comics::all()]);
-        return view('layouts.comics.welcome', ['comics'=>Comics::all()]);
+        $comics = Comics::all();
+        return view('admin.comics.index', compact('comics'));
+        
 
         
     }
@@ -38,20 +40,20 @@ class ComicsController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        //dd($request->all());
 
         $data = $request->all();
-
-        $newComic = new Comics();
-        /*
+        //First method
+        /*$newComic = new Comics();
+        
         $newComic->title = $data['title'];
 
         $newComic->cover_image = $data['cover_image'];
        
-        
         */
-        $newComic->fill($data);
-        $newComic->save();
+        Comics::create($data);
+        /*$newComic->fill($data);
+        $newComic->save();*/
         return to_route('admin.comics.index');
     }
 
@@ -71,7 +73,8 @@ class ComicsController extends Controller
      */
     public function edit(Comics $comics)
     {
-        //
+        //dd($comics);
+        return view('admin.comics.edit',compact('comics'));
     }
 
     /**

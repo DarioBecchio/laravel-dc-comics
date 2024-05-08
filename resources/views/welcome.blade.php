@@ -1,14 +1,16 @@
-@extends(layouts.app)
+@extends('layouts.comics.app')
 
 @section('content')
 <div class="container">
     <div class="row">
        @forelse($comics as $comic) 
-        <div class="col">
+        <div class="col-4">
             <div class="card">
                 <img src="{{$comic->cover_image}}" alt="The comic" class="card-img-top">
-                <h1>{{$comic->title}}</h1>
-
+                <div class="card-body">
+                  <h1>{{$comic->title}}</h1>  
+                </div>
+                
             </div>
         </div>
         @empty
@@ -17,7 +19,7 @@
                 Sorry no comics yet
             </p>
         </div>
-        @endif
+        @endforelse
     </div>
 </div>
 @endsection

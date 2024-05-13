@@ -40,7 +40,7 @@
             </div>
             
 
-            <button type="submit" class="btn btn-dark">Create</button>
+            <button type="submit" class="btn btn-dark">Save changes</button>
         </form>
 </div>
 

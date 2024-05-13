@@ -75,6 +75,7 @@ class ComicsController extends Controller
     {
         //dd($comics);
         return view('admin.comics.edit',compact('comic'));
+        return to_route('comics.index');
     }
 
     /**
@@ -85,17 +86,18 @@ class ComicsController extends Controller
         //dd($request->all(), $comics);
         
         $comics->update($request->all());
-        return to_route('admin.comics.index');
+        return to_route('comics.index');
     } 
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comics $comics)
+    public function destroy(Comics $comic)
     {
         //
-        dd($comics);
-        $comics->delete();
+        dd($comic);
+        $comic->delete();
+        return to_route('comics.index');
 
     }
 }

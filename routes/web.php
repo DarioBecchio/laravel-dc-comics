@@ -28,7 +28,7 @@ Route::get('/ourcompany', function () {
 Route::get('/comics/{comic}', function ($title) {
     $house = Comics::findOrFail($title);
     return view('layouts.comic.show', compact('comic'));
-})->name('guests.houses.show');
+})->name('guests.comics.show');
 
 /*CRUD operations */
 

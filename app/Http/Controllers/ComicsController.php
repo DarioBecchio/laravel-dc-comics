@@ -94,5 +94,8 @@ class ComicsController extends Controller
     public function destroy(Comics $comics)
     {
         //
+        dd($comics);
+        $comics->delete();
+
     }
 }

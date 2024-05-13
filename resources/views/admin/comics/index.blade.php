@@ -3,7 +3,7 @@
 @section('content')
 <h1 class="p-3 bg-dark text-white">Properties</h1>
 <div class="container min-vh-100 py-5">
-   <a class="btn btn-primary rounded-pill position-fixed bottom-0 end-0 m-3" href="{{route(admin.create)}}" role="button">
+   <a class="btn btn-primary rounded-pill position-fixed bottom-0 end-0 m-3" href="{{route('comics.create')}}" role="button">
     <i class="fa fa-plus" aria-hidden="true"></i>
     <span>ADD</span>
    </a>
@@ -21,7 +21,18 @@
                 <tr class="">
                     <td scope="row">{{$comic->title}}</td>
                     <td><img width="100" src="{{$comic->cover_image}}" alt=""></td>   
-                    <td><a href="{{route('comics.show' , $comic)}}">view</a></td>    
+                    <td>
+                        <a href="{{route('comics.show' , $comic)}}">view</a>
+                        <a href="{{route('comics.edit' , $comic)}}">edit</a>
+                        <form action="{{route('comics.destroy' , $comic)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button 
+                            type="submit"
+                            class="btn btn-danger"
+                            > Delete</button>
+                        </form>
+                    </td>    
                 </tr>
             
                 @empty

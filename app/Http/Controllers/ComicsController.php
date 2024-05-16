@@ -46,7 +46,7 @@ class ComicsController extends Controller
 
         $valdata = $request->validate([
             'Title' => 'required|min:2|max:200',
-            'cover_image' => 'required'
+            'cover_image' => 'required',
             
         ]);
 
@@ -72,7 +72,7 @@ class ComicsController extends Controller
 
         
         //Post/Redirect/Get pattern
-        return to_route('comics.index');
+        return to_route('admin.comics.index');
     }
 
     /**

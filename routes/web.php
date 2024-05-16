@@ -25,10 +25,10 @@ Route::get('/ourcompany', function () {
     return view('ourcompany');
 })->name('ourcompany');
 
-Route::get('/comics/{comic}', function ($title) {
+/*Route::get('/comics/{comic}', function ($title) {
     $house = Comics::findOrFail($title);
     return view('layouts.comic.show', compact('comic'));
-})->name('guests.comics.show');
+})->name('guests.comics.show');*/
 
 /*CRUD operations */
 

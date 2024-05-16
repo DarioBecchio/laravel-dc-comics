@@ -17,6 +17,7 @@ class ComicsController extends Controller
         //dd(Comics::all());
         //prints all comics
         $comics = Comics::all();
+        
         return view('admin.comics.index', compact('comics'));
         
 
@@ -29,6 +30,7 @@ class ComicsController extends Controller
     public function create()
     {
         //
+        
         return view('admin.comics.create');
          
 
@@ -39,8 +41,17 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        //dd($request->all());
+        
+        //Validate
+
+        $valdata = $request->validate([
+            'Title' => 'required|min:2|max:200',
+            'cover_image' => 'required'
+            
+        ]);
+
+        dd($valdata);
+        
 
         $data = $request->all();
         //First method
@@ -51,10 +62,17 @@ class ComicsController extends Controller
         $newComic->cover_image = $data['cover_image'];
        
         */
+
+
+        //Create the resource
+
         Comics::create($data);
         /*$newComic->fill($data);
         $newComic->save();*/
-        return to_route('admin.comics.index');
+
+        
+        //Post/Redirect/Get pattern
+        return to_route('comics.index');
     }
 
     /**
@@ -94,8 +112,8 @@ class ComicsController extends Controller
      */
     public function destroy(Comics $comic)
     {
-        //
-        dd($comic);
+        //dd($comic);
+        
         $comic->delete();
         return to_route('comics.index');
 

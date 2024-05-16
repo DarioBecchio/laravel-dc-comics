@@ -30,7 +30,7 @@
                             type="button"
                             class="btn btn-danger btn-sm"
                             data-bs-toggle="modal"
-                            data-bs-target="#modalId--{{$comic->title}}"
+                            data-bs-target="#modalId-{{$comic->title}}"
                         >
                             Delete
                         </button>

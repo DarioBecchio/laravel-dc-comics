@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\ComicsController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Comics;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,21 +15,17 @@ use App\Models\Comics;
 */
 
 Route::get('/', function () {
+    return view('welcome');
+});
 
-    $comics = Comics::all();
-    return view('welcome', compact('comics'));
-    
-})->name('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/ourcompany', function () {
-    return view('ourcompany');
-})->name('ourcompany');
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-/*Route::get('/comics/{comic}', function ($title) {
-    $house = Comics::findOrFail($title);
-    return view('layouts.comic.show', compact('comic'));
-})->name('guests.comics.show');*/
-
-/*CRUD operations */
-
-Route::resource('comics' , ComicsController::class);
+require __DIR__.'/auth.php';
